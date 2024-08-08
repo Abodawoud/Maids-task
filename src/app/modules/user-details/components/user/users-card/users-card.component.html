@@ -1,0 +1,23 @@
+<i
+  class="pi pi-arrow-left cursor-pointer hover:text-blue-800 mb-8"
+  style="font-size: 1.7rem"
+  (click)="goBack()"
+></i>
+<div
+  class="max-w-lg bg-white border border-gray-200 rounded-lg shadow-2xl flex justify-center items-center flex-col py-10"
+  *ngIf="user"
+>
+  <img
+    class="rounded-full border-y-blue-800 border-4 w-[150px] h-[150px] object-cover"
+    [src]="user.avatar"
+    alt="avatar"
+    loading="lazy"
+  />
+
+  <div class="p-5">
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+      Name: {{ user.first_name }} {{ user.last_name }}
+    </h5>
+    <h5 class="text-2xl font-bold tracking-tight text-gray-900">Email: {{ user.email }}</h5>
+  </div>
+</div>

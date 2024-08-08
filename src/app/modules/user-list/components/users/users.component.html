@@ -1,0 +1,53 @@
+<app-header (searchIdChange)="onSearch($event)"></app-header>
+
+<ng-container *ngIf="loading$ | async; else content">
+  <div class="p-4 sm:p-6 lg:p-8 xl:p-10">
+    <p-progressBar mode="indeterminate" [style]="{ height: '6px' }"></p-progressBar>
+  </div>
+</ng-container>
+<ng-template #content>
+  <ng-container *ngIf="filteredUser$ | async as filteredUser">
+    <!-- Display only the filtered user if available -->
+    <ng-container *ngIf="filteredUser; else noFilteredUser">
+      <div class="p-5">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+          <app-users-card [user]="filteredUser"></app-users-card>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #noFilteredUser>
+      <!-- No filtered user found, show a message or other content if needed -->
+      <div class="p-5 text-center">
+        <p>User not found</p>
+      </div>
+    </ng-template>
+  </ng-container>
+
+  <ng-container *ngIf="!(filteredUser$ | async)">
+    <!-- Display paginated users if no filtered user is found -->
+    <ng-container *ngIf="users$ | async as data">
+      <div *ngIf="data.length === 0" class="p-5 text-center">
+        <p>No data available</p>
+      </div>
+
+      <ng-container *ngIf="data.length > 0">
+        <div class="p-5">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+            <ng-container *ngFor="let user of data">
+              <app-users-card [user]="user"></app-users-card>
+            </ng-container>
+          </div>
+        </div>
+        <div class="mt-8">
+          <p-paginator
+            [first]="first"
+            [rows]="rows"
+            [totalRecords]="(totalRecords$ | async) ?? 0"
+            (onPageChange)="onPageChange($event)"
+            class="w-full max-w-3xl mx-auto"
+          ></p-paginator>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</ng-template>

@@ -1,0 +1,17 @@
+<p-menubar>
+  <ng-template pTemplate="start">
+    <img src="assets/maids.png" class="w-[70px]" />
+  </ng-template>
+  <ng-template pTemplate="end">
+    <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <input
+        type="number"
+        pInputText
+        placeholder="Search By Id"
+        [(ngModel)]="searchId"
+        (ngModelChange)="onSearch()"
+      />
+    </span>
+  </ng-template>
+</p-menubar>
