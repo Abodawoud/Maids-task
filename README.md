@@ -6,21 +6,84 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Tree structure
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```shell
+|-- README.md
+|-- angular.json
+|-- package-lock.json
+|-- package.json
+|-- src
+|   |               `-- app
+|   |   |           `-- app-routing.module.ts
+|   |   |           `-- app.component.css
+|   |   |           `-- app.component.html
+|   |   |           `-- app.component.ts
+|   |   |           `-- app.module.ts
+|   |   |           `-- core
+|   |   |   |       `-- core.module.ts
+|   |   |   |       `-- interceptor
+|   |   |   |       `-- caching.interceptor.ts
+|   |   |   |-- interfaces
+|   |   |   |   |   `-- user.ts
+|   |   |   |       `-- users.ts
+|   |   |   `-- services
+|   |   |           `-- users.service.ts
+|   |   |-- modules
+|   |   |   |-- store
+|   |   |   |   |   `-- user.actions.ts
+|   |   |   |   |   `-- user.effects.ts
+|   |   |   |   |   `-- user.reducer.ts
+|   |   |   |       `-- user.selectors.ts
+|   |   |   |-- user-details
+|   |   |   |   |   `-- components
+|   |   |   |   |   `-- user
+|   |   |   |   |       |-- user.component.css
+|   |   |   |   |       |-- user.component.html
+|   |   |   |   |       |-- user.component.ts
+|   |   |   |   |       `-- users-card
+|   |   |   |   |           |-- users-card.component.css
+|   |   |   |   |           |-- users-card.component.html
+|   |   |   |   |           `-- users-card.component.ts
+|   |   |   |   |-- user-details-routing.module.ts
+|   |   |   |   `-- user-details.module.ts
+|   |   |   `-- user-list
+|   |   |       |-- components
+|   |   |       |   `-- users
+|   |   |       |       |-- users-card
+|   |   |       |       |   |-- users-card.component.css
+|   |   |       |       |   |-- users-card.component.html
+|   |   |       |       |   `-- users-card.component.ts
+|   |   |       |       |-- users.component.css
+|   |   |       |       |-- users.component.html
+|   |   |       |       `-- users.component.ts
+|   |   |       |-- user-list-routing.module.ts
+|   |   |       `-- user-list.module.ts
+|   |   `-- shared
+|   |       |-- components
+|   |       |   `-- header
+|   |       |       |-- header.component.css
+|   |       |       |-- header.component.html
+|   |       |       `-- header.component.ts
+|   |       `-- shared.module.ts
+|   |-- assets
+|   |   `-- maids.png
+|   |-- environments
+|   |   |-- environment.production.ts
+|   |   `-- environment.ts
+|   |-- favicon.ico
+|   |-- index.html
+|   |-- main.ts
+|   `-- styles.css
+|-- tailwind.config.js
+|-- tsconfig.app.json
+|-- tsconfig.json
+`-- tsconfig.spec.json
+```
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 ## Further help
 
